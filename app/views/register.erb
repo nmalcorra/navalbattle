@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Batalla Naval - Registro</title>
+		<meta charset="UTF-8"/>
+		<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="/vendor/bootstrap/css/bootstrap-theme.css" rel="stylesheet">		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1>Batalla Naval
+				<div class="col-md-6">
+					<div class="text-primary page-header">
+						<h2>Registro
+					</div>
+					<form action='players' method="POST">
+						<h3>Usuario:<br>
+						<input type="text" name="userid" required>
+						<h3>Nombre:<br>
+						<input type="text" name="name" required>
+						<h3>Apellido:<br>
+						<input type="text" name="last_name" required>
+						<h3>Contraseña:<br>
+						<input type="password" name="password" required>
+						<h3>Repetir contraseña:<br>
+						<input type="password" name="password2" required>
+						<br><br>
+						<input type="submit" value="Registrar" class="btn btn-primary btn-lg">
+						<a class="btn btn-primary btn-lg" href="/">
+								Cancelar
+						</a>
+					</form>
+					<hr>
+				</div>
+				<div class="col-md-6">
+					<br><br>
+					<img src="/images/batalla_naval-1024x768.jpg" alt="Batalla Naval" class="img-rounded img-responsive">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Batalla Naval - Nueva Partida</title>
+		<meta charset="UTF-8"/>
+		<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="/vendor/bootstrap/css/bootstrap-theme.css" rel="stylesheet">		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>Batalla Naval
+				</div>
+				<div class="col-md-6">
+					<br>
+					<a class="btn btn-primary btn-lg pull-right" href="/singoff">
+						Cerrar Sesi&oacute;n
+					</a>
+					<div class="pull-right">
+					&nbsp;&nbsp;
+					</div>
+					<a class="btn btn-primary btn-lg pull-right" href="/home">
+						Inicio
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="text-primary page-header">
+						<h2>Nueva partida
+					</div>
+					<form action="/players/games" method="POST">
+						<h3>Contrincante:<br>
+						<select name = "idplayer2">
+							<%= @selectOpt %> 
+						</select>
+						<h3>Tablero:<br>
+						<input type="radio" name="tab_size" value="5" checked>5*5 <br>
+						<input type="radio" name="tab_size" value="10">10*10 <br>
+						<input type="radio" name="tab_size" value="15">15*15
+						<br><br>
+						<input type="submit" value="Comenzar" class="btn btn-primary btn-lg">
+					</form>
+					<hr>
+				</div>
+				<div class="col-md-6">
+					<br><br><br>
+					<img src="/images/4faab085433a9_620_!.jpg" alt="Batalla Naval" class="img-rounded img-responsive">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

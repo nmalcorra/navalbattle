@@ -1,0 +1,65 @@
+!!!
+%html
+	%head
+		%title Batalla Naval - Partidas
+		%meta{:charset => "UTF-8"}
+		%link{:href => "/vendor/bootstrap/css/bootstrap.css", :rel => "stylesheet"}
+		%link{:href => "/vendor/bootstrap/css/bootstrap-theme.css", :rel => "stylesheet"}
+		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+	%body
+		.container
+			.row
+				.col-md-6
+					%h1 Batalla Naval
+				.col-md-6
+					%br
+					%a.btn.btn-primary.btn-lg.pull-right{:href => "/singoff"}
+						Cerrar Sesi&oacute;n
+					.pull-right
+						&nbsp;&nbsp;
+					%a.btn.btn-primary.btn-lg.pull-right{:href => "/home"}
+						Inicio
+			.row
+				.text-primary.page-header
+					%h2 Partidas    
+					%table.table.table-bordered.table-hover.table-striped
+						%tr
+							%th.info
+								Contricante
+							%th.info
+								Tipo Tablero
+							%th.info
+								Proximo turno
+							%th.info
+								Estado Partida
+							%th.info
+								Ver Partida
+					
+						- @parts.each do |part|	
+							%tr 
+								%td
+									-if part.jugador2_id == userid
+										#{part.userid}
+									-else
+										#{part.jugador2_id}
+								%td
+									#{part.tipo_tablero}
+								%td
+									-if part.proxturno == userid
+										Tu turno
+									-else
+										Turno de "#{part.proxturno}"
+								%td
+									-if part.finalizado == 'N'
+										En juego			
+									-else
+										Finalizada. Ganador el usuario: #{part.comienzo}
+								%td 
+									-if @tabl.nil?
+										%form{:action => "/ubicarbarcos/#{part.id}", :method => "POST"}
+											%input{:type => "hidden", :name => "idplayer2", :value => "#{part.jugador2_id}"}
+											%input{:type => "hidden", :name => "idpart", :value => "#{part.id}"}
+											%input.btn.btn-primary{:type => "submit", :value => "Colocar barcos"}
+									-else	
+										%form{:action => "/players/#{userid}/games/#{part.id}", :method => "GET"}
+											%input.btn.btn-primary{:type => "submit", :value => "Ver"}	  									
